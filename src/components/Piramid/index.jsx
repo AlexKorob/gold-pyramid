@@ -2,12 +2,14 @@ import React from "react";
 import Cell from "components/Cell";
 import "./styles.js";
 import Counter from "components/counter";
-import BestWay from "utils/calcBestWay";
 import { StyledPiramid, ButtonWrapper } from "./styles.js";
 import { Button } from "@material-ui/core";
 import Spinner from "components/spinner/index.jsx";
+// eslint-disable-next-line
+import Worker from "worker-loader!./calcBestWay.worker.js";
 
 const Piramid = ({ countRows }) => {
+  const findBestWayWorker = new Worker();
   const [savedRows, setSavedRows] = React.useState([]);
   const [isPiramidCompleted, setIsPiramidCompleted] = React.useState(false);
   const [isBestWayShowing, setIsBestWayShowing] = React.useState(false);
@@ -15,11 +17,6 @@ const Piramid = ({ countRows }) => {
   const [savedScore, setSavedScore] = React.useState(0);
   const [score, setScore] = React.useState(0);
   const [isLoading, setIsLoading] = React.useState(false);
-
-  const handleCalcBestWay = (process) => {
-    if (process === "start") setIsLoading(true);
-    else setIsLoading(false);
-  };
 
   const getCellBackgroundColor = () => {
     const avalilableColors = [
@@ -46,6 +43,7 @@ const Piramid = ({ countRows }) => {
   React.useEffect(() => {
     setSavedRows([]);
     setIsBestWayShowing(false);
+    setIsPiramidCompleted(false);
     const rows = [];
     for (let i = 0; i < countRows; i++) {
       const row = [];
@@ -91,6 +89,26 @@ const Piramid = ({ countRows }) => {
     setScore((prevState) => prevState + cell.value);
   };
 
+  React.useEffect(() => {
+    findBestWayWorker.onmessage = ($event) => {
+      if ($event && $event.data) {
+        const [score, path] = $event.data;
+        setRows((prevState) => {
+          return prevState.map((row, rowIndex) =>
+            row.map((cell, cellIndex) => {
+              return cellIndex === parseInt(path[rowIndex])
+                ? { ...cell, showValue: true }
+                : { ...cell, showValue: false };
+            })
+          );
+        });
+        setIsLoading(false);
+        setScore(score);
+        setIsBestWayShowing(true);
+      }
+    };
+  }, [findBestWayWorker]);
+
   const handleShowBestWay = () => {
     if (isBestWayShowing) {
       setRows(savedRows);
@@ -99,27 +117,11 @@ const Piramid = ({ countRows }) => {
       setIsBestWayShowing(false);
       return;
     }
-
     setSavedRows(rows);
     setSavedScore(score);
-    handleCalcBestWay("start");
-    const bestWay = new BestWay(rows.map((row) => row.map((row) => row.value)));
-    setTimeout(() => {
-      const [score, path] = bestWay.getBestWay();
-      handleCalcBestWay("finish");
+    setIsLoading(true);
 
-      setRows((prevState) => {
-        return prevState.map((row, rowIndex) =>
-          row.map((cell, cellIndex) => {
-            return cellIndex === parseInt(path[rowIndex])
-              ? { ...cell, showValue: true }
-              : { ...cell, showValue: false };
-          })
-        );
-      });
-      setScore(score);
-      setIsBestWayShowing(true);
-    }, 100);
+    findBestWayWorker.postMessage({ rows });
   };
 
   return isLoading ? (
