@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3bcab75d73e4f35342535a3ecfde93fa",
+    "revision": "0d16476e71ca3da16aa3959a5fada36b",
     "url": "/gold-pyramid/index.html"
   },
   {
-    "revision": "0c37f00d6be097b4f409",
+    "revision": "b065cebda3c1a3bcb681",
     "url": "/gold-pyramid/static/css/main.5ecd60fb.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/gold-pyramid/static/js/2.787d2d48.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0c37f00d6be097b4f409",
-    "url": "/gold-pyramid/static/js/main.f05922e3.chunk.js"
+    "revision": "b065cebda3c1a3bcb681",
+    "url": "/gold-pyramid/static/js/main.c1a60d81.chunk.js"
   },
   {
     "revision": "8153897027547af32a86",

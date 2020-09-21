@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/gold-pyramid/precache-manifest.746f848e03a8ba417b1d4e801483d7d6.js"
+  "/gold-pyramid/precache-manifest.0d7a0aa96754fb9a0e3123d2a3c1ee4a.js"
 );
 
 self.addEventListener('message', (event) => {
