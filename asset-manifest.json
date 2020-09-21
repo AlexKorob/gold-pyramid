@@ -1,22 +1,24 @@
 {
   "files": {
     "main.css": "/gold-pyramid/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/gold-pyramid/static/js/main.c1a60d81.chunk.js",
-    "main.js.map": "/gold-pyramid/static/js/main.c1a60d81.chunk.js.map",
+    "main.js": "/gold-pyramid/static/js/main.be253703.chunk.js",
+    "main.js.map": "/gold-pyramid/static/js/main.be253703.chunk.js.map",
     "runtime-main.js": "/gold-pyramid/static/js/runtime-main.6e6bd23d.js",
     "runtime-main.js.map": "/gold-pyramid/static/js/runtime-main.6e6bd23d.js.map",
-    "static/js/2.787d2d48.chunk.js": "/gold-pyramid/static/js/2.787d2d48.chunk.js",
-    "static/js/2.787d2d48.chunk.js.map": "/gold-pyramid/static/js/2.787d2d48.chunk.js.map",
+    "static/js/2.53950a72.chunk.js": "/gold-pyramid/static/js/2.53950a72.chunk.js",
+    "static/js/2.53950a72.chunk.js.map": "/gold-pyramid/static/js/2.53950a72.chunk.js.map",
     "index.html": "/gold-pyramid/index.html",
-    "precache-manifest.0d7a0aa96754fb9a0e3123d2a3c1ee4a.js": "/gold-pyramid/precache-manifest.0d7a0aa96754fb9a0e3123d2a3c1ee4a.js",
+    "precache-manifest.bc1827fa9e69fb8d1625ffac6eb6bb31.js": "/gold-pyramid/precache-manifest.bc1827fa9e69fb8d1625ffac6eb6bb31.js",
     "service-worker.js": "/gold-pyramid/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "/gold-pyramid/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.787d2d48.chunk.js.LICENSE.txt": "/gold-pyramid/static/js/2.787d2d48.chunk.js.LICENSE.txt"
+    "static/js/2.53950a72.chunk.js.LICENSE.txt": "/gold-pyramid/static/js/2.53950a72.chunk.js.LICENSE.txt",
+    "static/js/calcBestWay.worker.1ef29502.worker.js": "/gold-pyramid/static/js/calcBestWay.worker.1ef29502.worker.js",
+    "static/js/calcBestWay.worker.1ef29502.worker.js.map": "/gold-pyramid/static/js/calcBestWay.worker.1ef29502.worker.js.map"
   },
   "entrypoints": [
     "static/js/runtime-main.6e6bd23d.js",
-    "static/js/2.787d2d48.chunk.js",
+    "static/js/2.53950a72.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.c1a60d81.chunk.js"
+    "static/js/main.be253703.chunk.js"
   ]
 }
